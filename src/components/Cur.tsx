@@ -10,7 +10,7 @@ interface Cur {
     stateWeather: any;
     children: React.ReactNode|React.ReactNode[];
     cur: JSX.Element;
-    
+    forecastday: any;
   }
 
 

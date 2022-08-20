@@ -65,35 +65,23 @@ const stateWeatherNew: React.ReactNode[] = []
 
  
 
-  const curTemp = Object.values(props.statecur);                   // pre-loads Tallinn weather status e.g currently sunny, rainy, cloudy
-  const elMap = (curTemp as unknown as any[]).map(item => item.condition);
- const newMap = Array.from(Object.entries(elMap));
- const newNew = newMap.pop();
-  let theNewarray = newNew?.map(Object.values);
-  const stateWeather: React.ReactNode[] = []
-   if (theNewarray !== undefined) {
-    stateWeather.push(theNewarray[1][0])
-  }
+ 
   
-  const curTempRiga = Object.values(props.statecur1);             // pre-loads Riga weather status e.g currently sunny, rainy, cloudy
-  const elMapRiga = (curTempRiga as unknown as any[]).map(item => item.condition);
- const newMapRiga = Array.from(Object.entries(elMapRiga));
- const newNewRiga = newMapRiga.pop();
-  let theNewarrayRiga = newNewRiga?.map(Object.values);
-  const stateWeatherRiga: React.ReactNode[] = []
-   if (theNewarrayRiga !== undefined) {
-    stateWeatherRiga.push(theNewarrayRiga[1][0])
-  }
+ // const curTempRiga = Object.values(props.statecur1);             // pre-loads Riga weather status e.g currently sunny, rainy, cloudy
+ // const elMapRiga = (curTempRiga as unknown as any[]).map(item => item.condition);
+// const newMapRiga = Array.from(Object.entries(elMapRiga));
+// const newNewRiga = newMapRiga.pop();
+ // let theNewarrayRiga = newNewRiga?.map(Object.values);
+ // const stateWeatherRiga: React.ReactNode[] = []
+  // if (theNewarrayRiga !== undefined) {
+  //  stateWeatherRiga.push(theNewarrayRiga[1][0])
+  //}
 
 
   return (
     <div>
-      <ul>
-        {stateWeather}
-        </ul>
-      <ul>
-        {stateWeatherRiga}  
-        </ul>
+     
+      
       <ul>
         {stateWeatherNew}
         </ul>

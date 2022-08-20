@@ -1,140 +1,256 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+
 
 const CityAdd: (props: any) => any = (props: any) => {
+  const stateForecastTln: any = props.stateforecast;    // takes the API call props so it can be used for getting the values
+  const stateForecastRiga: any = props.statecur1;
+  const newCity: any = props.statecursearch;
+  const newCity2: any = props.statecursearch2;
+  const newCity3: any = props.statecursearch3;
+  const newCity4: any = props.statecursearch4;
+  const newCity5: any = props.statecursearch5;
+  let newCity6: any = props.statecursearch6;
+  let clickCity: string = props.cchange;
   
 
 
-const stateCurArray: Array<Object> = Object.values(props.statecursearch)        // gets data from App component through props, then converts to array so they can be used
-const stateCurArray2: Array<Object> = Object.values(props.statecursearch2)
-const stateCurArray3: Array<Object> = Object.values(props.statecursearch3)
-const stateCurArray4: Array<Object> = Object.values(props.statecursearch4)
-const stateCurArray5: Array<Object> = Object.values(props.statecursearch5)
-const stateCurArray6: Array<Object> = Object.values(props.statecursearch6)
-const stateCurTemp: Array<Object> = Object.values(props.statecur)
-const stateCur1Temp: Array<Object> = Object.values(props.statecur1)
-
-const stateForecast: any = Object.entries(props.stateforecast)
+const [deleteBtn, setDeleteBtn] = useState('');
+const [firstState, setFirstState] = useState('');
+const [secondState, setSecondState] = useState('');
+const [thirdState, setThirdState] = useState('');
+const [fourthState, setFourthState] = useState('');
+const [fifthState, setFifthState] = useState('');
+const [sixthState, setSixthState] = useState('');
 
 
 
-const newArray: any = [];
-const newArray2: any = [];
 
-const pushMapFunc = stateForecast.map((x: any) => { newArray.push(x)
-  newArray.map((x: any) => console.log(x.day))
+
+
+
+
+
+const TallinnTemps = [                                // pre-loads temperatures for Tallinn
+  stateForecastTln.location.name,'Current:', stateForecastTln.current.temp_c,'°',',',stateForecastTln.current.condition.text,'Wind:', 
+   stateForecastTln.current.wind_kph,'km/h','Tomorrow:',
+   stateForecastTln.forecast.forecastday[1].day.mintemp_c, - 
+  stateForecastTln.forecast.forecastday[1].day.maxtemp_c, '°'
+]
+
+const TallinnTempsJoin = TallinnTemps.join(' ')      // join is used to put spaces between array elements
+
   
+ const RigaTemps = [                                  // pre-loads temperatures for Riga
+   stateForecastRiga.location.name,'Current:', stateForecastRiga.current.temp_c, '°',',',stateForecastTln.current.condition.text,'Wind:',
+    stateForecastRiga.current.wind_kph,'km/h','Tomorrow:', 
+   stateForecastRiga.forecast.forecastday[1].day.mintemp_c, - 
+   stateForecastRiga.forecast.forecastday[1].day.maxtemp_c, '°'
+]
 
-})
+ const RigaTempsJoin = RigaTemps.join(' ')
+ 
+
+ const AddNewCity: React.ReactNode[] = []             // pre-loads temperatures for all the other cities (6 max)
+ if (props.state.length !== 0) {
+  AddNewCity.push(newCity.location.name,'Current:', newCity.current.temp_c,  '°',',',newCity.current.condition.text,'Wind:', 
+  newCity.current.wind_kph,'km/h','Tomorrow:', 
+  newCity.forecast.forecastday[1].day.mintemp_c, - 
+  newCity.forecast.forecastday[1].day.maxtemp_c, '°')
+}  
+ 
+ const AddNewCityJoin = AddNewCity.join(' ');
 
 
-const BlahBuncFunc = pushMapFunc.map((x: any) => { newArray2.push(x)
-  newArray2.map((x: any) => console.log(x.day))
+ const AddNewCity2: React.ReactNode[] = []             
+ if (props.statecursearch2.length !== 0) {
+  AddNewCity2.push(newCity2.location.name,'Current:', newCity2.current.temp_c,  '°',',',newCity2.current.condition.text,'Wind:', 
+  newCity2.current.wind_kph,'km/h','Tomorrow:', 
+  newCity2.forecast.forecastday[1].day.mintemp_c, - 
+  newCity2.forecast.forecastday[1].day.maxtemp_c, '°')
+}  
+ 
+ const AddNewCityJoin2 = AddNewCity2.join(' ');
+
+
+ const AddNewCity3: React.ReactNode[] = []             
+ if (props.statecursearch3.length !== 0) {
+  AddNewCity3.push(newCity3.location.name,'Current:', newCity3.current.temp_c,  '°',',',newCity3.current.condition.text,'Wind:', 
+  newCity3.current.wind_kph,'km/h','Tomorrow:', 
+  newCity3.forecast.forecastday[1].day.mintemp_c, - 
+  newCity3.forecast.forecastday[1].day.maxtemp_c, '°')
+}  
+ 
+ const AddNewCityJoin3 = AddNewCity3.join(' ');
+
+
+ const AddNewCity4: React.ReactNode[] = []             
+ if (props.statecursearch4.length !== 0) {
+  AddNewCity4.push(newCity4.location.name,'Current:', newCity4.current.temp_c,  '°',',',newCity4.current.condition.text,'Wind:', 
+  newCity4.current.wind_kph,'km/h','Tomorrow:', 
+  newCity4.forecast.forecastday[1].day.mintemp_c, - 
+  newCity4.forecast.forecastday[1].day.maxtemp_c, '°')
+}  
+ 
+ const AddNewCityJoin4 = AddNewCity4.join(' ');
+
+
+ const AddNewCity5: React.ReactNode[] = []             
+ if (props.statecursearch5.length !== 0) {
+  AddNewCity5.push(newCity5.location.name,'Current:', newCity5.current.temp_c,  '°',',',newCity5.current.condition.text,'Wind:', 
+  newCity5.current.wind_kph,'km/h','Tomorrow:', 
+  newCity5.forecast.forecastday[1].day.mintemp_c, - 
+  newCity5.forecast.forecastday[1].day.maxtemp_c, '°')
+}  
+ 
+ const AddNewCityJoin5 = AddNewCity5.join(' ');
+
+
+ const AddNewCity6: React.ReactNode[] = []             
+ if (props.statecursearch6.length !== 0) {
+  AddNewCity6.push(newCity6.location.name,'Current:', newCity6.current.temp_c,  '°',',',newCity6.current.condition.text,'Wind:', 
+  newCity6.current.wind_kph,'km/h','Tomorrow:', 
+  newCity6.forecast.forecastday[1].day.mintemp_c, - 
+  newCity6.forecast.forecastday[1].day.maxtemp_c, '°')
   
+}  
+ 
+ let AddNewCityJoin6 = AddNewCity6.join(' ');
+ const strinz: string = '';
 
-})
-
-  console.log(stateForecast)
 
  
 
+ const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn('delete clicked');
+  setFirstState(AddNewCityJoin)
+  
+  
+};
 
-const getNameTempTallinn =  (stateForecast as unknown as any[]).map(({name, wind_kph, temp_c, tz_id}: any) => {   // Takes the name and current temp for Riga
-  return <li key={`stateCurTemp-${tz_id}`}>
-    {name}
-    {temp_c}&nbsp;&nbsp; {wind_kph}
+  
+  
+
+
+/* const myDelBtn: any = () => { 
+  if (AddNewCityJoin6 !== '' || AddNewCityJoin5 !== '' || AddNewCityJoin4 !== '' || AddNewCityJoin3 !== '' || AddNewCityJoin2 !== '' 
+  || AddNewCityJoin !== '') 
+  return (
+    <button onClick={handleClick}
+            
+    >Remove city</button>
+  )
+}; */
+
+console.log(deleteBtn)
+
+const firstCity = () => {
+  
+  if (deleteBtn === '' && AddNewCityJoin !== '' || deleteBtn === 'delete clicked' && AddNewCityJoin !== firstState) {   
     
+    return ( 
+      
+    <div>{AddNewCityJoin}
+    <button onClick={handleClick}
+            
+    >X</button>
     
-  </li>  
+    </div>
   
- })
+    )
+  } else if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
   
+};
 
-   const addCity = (stateCurArray as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-    if (props.state.length !== 0) {
-   return <li key={`props.state-${tz_id}`}>
-       {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
-   </li>
-      
-      
+const secondCity = () => {
+  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin2 !== secondState) {   
+    
+    return  AddNewCityJoin2
+  } if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
+};
 
-   } 
- });
+const thirdCity = () => {
+  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin3 !== thirdState) {   
+    
+    return  AddNewCityJoin3
+  } if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
+};
 
- const addCity2 = (stateCurArray2 as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-  if (props.state.length !== 0) {
- return <li key={`props.state-${tz_id}`}>
-        {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
- </li>
- 
- 
- } 
-});
-const addCity3 = (stateCurArray3 as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-  if (props.state.length !== 0) {
- return <li key={`props.state-${tz_id}`}>
-        {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
- </li>
- 
- 
- } 
-});
-const addCity4 = (stateCurArray4 as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-  if (props.state.length !== 0) {
- return <li key={`props.state-${tz_id}`}>
-        {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
- </li>
- 
- 
- } 
-});
-const addCity5 = (stateCurArray5 as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-  if (props.state.length !== 0) {
- return <li key={`props.state-${tz_id}`}>
-        {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
- </li>
- 
- 
- } 
-});
-const addCity6 = (stateCurArray6 as unknown as any[]).map(({name, temp_c, tz_id, wind_kph}: any) => {     // Takes the name and current temp for the added city
-  if (props.state.length !== 0) {
- return <li key={`props.state-${tz_id}`}>
-        {name}
-       {temp_c}&nbsp;&nbsp; {wind_kph}
- </li>
- 
- 
- } 
-});
- 
-  
-  const getNameTempRiga =  (stateCur1Temp as unknown as any[]).map(({name, wind_kph, temp_c, tz_id}: any) => {   // Takes the name and current temp for Riga
-   return <li key={`curTempRiga-${tz_id}`}>
-     {name}
-     {temp_c}&nbsp;&nbsp; {wind_kph}
-     
-     
-   </li>  
-   
-  })
+const fourthCity = () => {
+  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin4 !== fourthState) {   
+    
+    return  AddNewCityJoin4
+  } if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
+};
+
+const fifthCity = () => {
+  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin5 !== fifthState) {   
+    
+    return  AddNewCityJoin5
+  } if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
+};
+
+
+
+const sixthCity = () => {
+  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin6 !== sixthState) {   
+    
+    return  AddNewCityJoin6
+  } if (deleteBtn === 'delete clicked') {
+    return strinz
+  } 
+};
+
+
  
 return (
-<div>
-
-    {getNameTempTallinn}
-    {getNameTempRiga}
-    {addCity} 
-    {addCity2}
-    {addCity3}
-    {addCity4}
-    {addCity5}
-    {addCity6}
+<ul>
+    <>
+    <li>
+    {TallinnTempsJoin} 
+    </li>
+    <li>
+    {RigaTempsJoin}
+    </li>
+    <li>
+    
+      {firstCity()}
+    </li>
+    <li>
+    
+      {secondCity()}
+    </li>
+    <li>
+    
+      {thirdCity()}
+    </li>
+    <li>
+    
+      {fourthCity()}
+    </li>
+    <li>
+      
+      {fifthCity()}
+    </li>
+    <li>
+      
+      {sixthCity()}
+    </li>
   
-</div>
+  
+    </>
+</ul>
 
 ) 
   }

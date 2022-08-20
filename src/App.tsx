@@ -2,9 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import FormValues from './components/FormValues';
-import Cur from './components/Cur';
 import './App.css';
-import CityFunctions from './components/CityFunctions';
 import CityAdd from './components/CityAdd';
 
 
@@ -17,41 +15,21 @@ export default function App(props: any) {
   const [curSearch4, setCurSearch4] = React.useState("");
   const [curSearch5, setCurSearch5] = React.useState("");
   const [curSearch6, setCurSearch6] = React.useState("");
-  const [forecast, setForecast] = useState<Cur[]>([]);
-  const [cur, setCur] = useState<Cur[]>([]);
-  const [cur1, setCur1] = useState<Cur[]>([]);
+  const [forecast, setForecast] = React.useState("");
+  const [cur1, setCur1] = React.useState("");
   const [error, setError] = useState({});
+  const [cityChange, setCityChange] = useState("")
   
  
 
 
-    useEffect(() => {       
-                   // fetches API for Tallinn
-        const urls = [
-            'http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=Tallinn&aqi=no'
-            
-
-
-        ];
-        Promise.all(
-            urls.map((url) =>
-                fetch(url)
-                    .then(response => response.json())
-                    .then(res => setCur(res))
-                    .catch(err => setError(err))
-            ),
-
-        );
-
-    }, []);
+  
 
           useEffect(() => {       
             // fetches API for Tallinn
       const urls = [
       'http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=Tallinn&days=2&aqi=no&alerts=no'
       
-
-
 
       ];
       Promise.all(
@@ -69,7 +47,8 @@ export default function App(props: any) {
 
     useEffect(() => {                           // fetches API for Riga
         const urls = [
-            'http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=Riga&aqi=no'
+            'http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=Riga&days=2&aqi=no&alerts=no'
+            
 
 
         ];
@@ -89,55 +68,59 @@ export default function App(props: any) {
 
   const onSubmit: any = async () => {       // on submit, takes the string from the input box, searches for that city, fetches and adds it
                                             // 6 times max (6 new cities)
-
+                                            
     try {
 
       if (search !== "") {
 
-        const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+        const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
         if (!res.ok) {
           throw new Error(`HTTP error: ${res.status}`);
         }
         const json = await res.json();
         if (curSearch === "") {
           setCurSearch(json);
+          
         }
 
 
         if (curSearch !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
           const json = await res.json();
           if (curSearch2 === "") {
             setCurSearch2(json);
+            
           }
 
         }
 
         if (curSearch2 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
           const json = await res.json();
           if (curSearch3 === "") {
             setCurSearch3(json);
+            
           }
 
         }
         if (curSearch3 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
           const json = await res.json();
           if (curSearch4 === "") {
             setCurSearch4(json);
+            
           }
 
 
@@ -145,25 +128,27 @@ export default function App(props: any) {
         }
         if (curSearch4 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
           const json = await res.json();
           if (curSearch5 === "") {
             setCurSearch5(json);
+            
           }
 
         }
         if (curSearch5 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=f5a303d06da64310805163248221205&q=${search}&aqi=no`);
+          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=f5a303d06da64310805163248221205&q=${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
           const json = await res.json();
-          if (curSearch6 === "") {
+          if (curSearch6 !== undefined) {
             setCurSearch6(json);
+            setCityChange('')
           }
         }
       }
@@ -176,7 +161,6 @@ export default function App(props: any) {
 
   
 
-
   return (
     <>
       
@@ -187,37 +171,27 @@ export default function App(props: any) {
             placeholder="search for your city"
             value={search}
             onChange={e => setSearch(e.target.value)}
+            
 
           ></input>
 
           <button type="submit"
           >add city</button>
         </form>
-        <CityAdd
-          state={curSearch}                                   // using these props to transfer state data to CityAdd component
-          statecur={cur}
-          statecur1={cur1}
-          stateforecast={forecast}
-          statecursearch={curSearch}
-          statecursearch2={curSearch2}
-          statecursearch3={curSearch3}
-          statecursearch4={curSearch4}
-          statecursearch5={curSearch5}
-          statecursearch6={curSearch6}
-        />
+                        {forecast && cur1 && <CityAdd
+                cchange={cityChange}    
+                state={curSearch}                                   // using these props to transfer state data to CityAdd component
+                statecur1={cur1}
+                stateforecast={forecast}
+                statecursearch={curSearch}
+                statecursearch2={curSearch2}
+                statecursearch3={curSearch3}
+                statecursearch4={curSearch4}
+                statecursearch5={curSearch5}
+                statecursearch6={curSearch6}
+                />}
 
-        < br />
-
-        <CityFunctions
-          statecur={cur}                                            // using these props to transfer state data to CityAdd component
-          statecur1={cur1}
-          statecursearch={curSearch}
-          statecursearch2={curSearch2}
-          statecursearch3={curSearch3}
-          statecursearch4={curSearch4}
-          statecursearch5={curSearch5}
-          statecursearch6={curSearch6}
-        />
+        
       </div>
 
     </>
