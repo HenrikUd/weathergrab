@@ -18,12 +18,9 @@ export default function App(props: any) {
   const [forecast, setForecast] = React.useState("");
   const [cur1, setCur1] = React.useState("");
   const [error, setError] = useState({});
-  const [cityChange, setCityChange] = useState("")
   
- 
-
-
   
+
 
           useEffect(() => {       
             // fetches API for Tallinn
@@ -148,7 +145,7 @@ export default function App(props: any) {
           const json = await res.json();
           if (curSearch6 !== undefined) {
             setCurSearch6(json);
-            setCityChange('')
+            
           }
         }
       }
@@ -179,16 +176,14 @@ export default function App(props: any) {
           >add city</button>
         </form>
                         {forecast && cur1 && <CityAdd
-                cchange={cityChange}    
-                state={curSearch}                                   // using these props to transfer state data to CityAdd component
                 statecur1={cur1}
-                stateforecast={forecast}
-                statecursearch={curSearch}
-                statecursearch2={curSearch2}
-                statecursearch3={curSearch3}
-                statecursearch4={curSearch4}
-                statecursearch5={curSearch5}
-                statecursearch6={curSearch6}
+                stateforecast={forecast}                              // using these props to transfer state data to CityAdd component
+                statecursearch={curSearch}   updateCurSearch={setCurSearch}  
+                statecursearch2={curSearch2} updateCurSearch2={setCurSearch2}
+                statecursearch3={curSearch3} updateCurSearch3={setCurSearch3}
+                statecursearch4={curSearch4} updateCurSearch4={setCurSearch4}
+                statecursearch5={curSearch5} updateCurSearch5={setCurSearch5}
+                statecursearch6={curSearch6} updateCurSearch6={setCurSearch6}
                 />}
 
         

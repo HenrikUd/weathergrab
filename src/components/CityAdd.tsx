@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 const CityAdd: (props: any) => any = (props: any) => {
@@ -11,22 +11,15 @@ const CityAdd: (props: any) => any = (props: any) => {
   const newCity4: any = props.statecursearch4;
   const newCity5: any = props.statecursearch5;
   let newCity6: any = props.statecursearch6;
-  let clickCity: string = props.cchange;
   
 
 
 const [deleteBtn, setDeleteBtn] = useState('');
-const [firstState, setFirstState] = useState('');
-const [secondState, setSecondState] = useState('');
-const [thirdState, setThirdState] = useState('');
-const [fourthState, setFourthState] = useState('');
-const [fifthState, setFifthState] = useState('');
-const [sixthState, setSixthState] = useState('');
-
-
-
-
-
+const [deleteBtn2, setDeleteBtn2] = useState('');
+const [deleteBtn3, setDeleteBtn3] = useState('');
+const [deleteBtn4, setDeleteBtn4] = useState('');
+const [deleteBtn5, setDeleteBtn5] = useState('');
+const [deleteBtn6, setDeleteBtn6] = useState('');
 
 
 
@@ -52,7 +45,7 @@ const TallinnTempsJoin = TallinnTemps.join(' ')      // join is used to put spac
  
 
  const AddNewCity: React.ReactNode[] = []             // pre-loads temperatures for all the other cities (6 max)
- if (props.state.length !== 0) {
+ if (props.statecursearch.length !== 0) {
   AddNewCity.push(newCity.location.name,'Current:', newCity.current.temp_c,  '°',',',newCity.current.condition.text,'Wind:', 
   newCity.current.wind_kph,'km/h','Tomorrow:', 
   newCity.forecast.forecastday[1].day.mintemp_c, - 
@@ -116,38 +109,53 @@ const TallinnTempsJoin = TallinnTemps.join(' ')      // join is used to put spac
 }  
  
  let AddNewCityJoin6 = AddNewCity6.join(' ');
- const strinz: string = '';
+ const blank: string = '';
 
 
  
 
- const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+ const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {    /* // click handler, on click sends state for button being pressed,
+                                                                           and resets the previous state input to an empty string */
   event.preventDefault();
   setDeleteBtn('delete clicked');
-  setFirstState(AddNewCityJoin)
-  
-  
+  props.updateCurSearch('');  
 };
 
+const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn2('delete clicked');
+  props.updateCurSearch2('');  
+};
+
+const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn3('delete clicked');
+  props.updateCurSearch3('');  
+};
+
+const handleClick4 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn4('delete clicked');
+  props.updateCurSearch4('');  
+};
+
+const handleClick5 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn5('delete clicked');
+  props.updateCurSearch5('');  
+};
+
+const handleClick6 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setDeleteBtn6('delete clicked');
+  props.updateCurSearch6('');  
+};
   
-  
 
-
-/* const myDelBtn: any = () => { 
-  if (AddNewCityJoin6 !== '' || AddNewCityJoin5 !== '' || AddNewCityJoin4 !== '' || AddNewCityJoin3 !== '' || AddNewCityJoin2 !== '' 
-  || AddNewCityJoin !== '') 
-  return (
-    <button onClick={handleClick}
-            
-    >Remove city</button>
-  )
-}; */
-
-console.log(deleteBtn)
 
 const firstCity = () => {
   
-  if (deleteBtn === '' && AddNewCityJoin !== '' || deleteBtn === 'delete clicked' && AddNewCityJoin !== firstState) {   
+  if (deleteBtn === '' && AddNewCityJoin !== '' || deleteBtn === 'delete clicked' && props.statecursearch !== '') {   
     
     return ( 
       
@@ -160,57 +168,116 @@ const firstCity = () => {
   
     )
   } else if (deleteBtn === 'delete clicked') {
-    return strinz
+    return blank
   } 
   
 };
 
 const secondCity = () => {
-  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin2 !== secondState) {   
+  
+  if (deleteBtn2 === '' && AddNewCityJoin2 !== '' || deleteBtn2 === 'delete clicked' && props.statecursearch2 !== '') {   
     
-    return  AddNewCityJoin2
-  } if (deleteBtn === 'delete clicked') {
-    return strinz
+    return ( 
+      
+    <div>{AddNewCityJoin2}
+    <button onClick={handleClick2}
+            
+    >X</button>
+    
+    </div>
+  
+    )
+  } else if (deleteBtn2 === 'delete clicked') {
+    return blank
   } 
+  
 };
 
 const thirdCity = () => {
-  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin3 !== thirdState) {   
+  
+  if (deleteBtn3 === '' && AddNewCityJoin3 !== '' || deleteBtn3 === 'delete clicked' && props.statecursearch3 !== '') {   
     
-    return  AddNewCityJoin3
-  } if (deleteBtn === 'delete clicked') {
-    return strinz
+    return ( 
+      
+    <div>{AddNewCityJoin3}
+    <button onClick={handleClick3}
+            
+    >X</button>
+    
+    </div>
+  
+    )
+  } else if (deleteBtn3 === 'delete clicked') {
+    return blank
   } 
+  
 };
 
 const fourthCity = () => {
-  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin4 !== fourthState) {   
+  
+  if (deleteBtn4 === '' && AddNewCityJoin4 !== '' || deleteBtn4 === 'delete clicked' && props.statecursearch4 !== '') {   
     
-    return  AddNewCityJoin4
-  } if (deleteBtn === 'delete clicked') {
-    return strinz
+    return ( 
+      
+    <div>{AddNewCityJoin4}
+    <button onClick={handleClick4}
+            
+    >X</button>
+    
+    </div>
+  
+    )
+  } else if (deleteBtn4 === 'delete clicked') {
+    return blank
   } 
+  
 };
+
 
 const fifthCity = () => {
-  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin5 !== fifthState) {   
+  
+  if (deleteBtn5 === '' && AddNewCityJoin5 !== '' || deleteBtn5 === 'delete clicked' && props.statecursearch5 !== '') {   
     
-    return  AddNewCityJoin5
-  } if (deleteBtn === 'delete clicked') {
-    return strinz
+    return ( 
+      
+    <div>{AddNewCityJoin5}
+    <button onClick={handleClick5}
+            
+    >X</button>
+    
+    </div>
+  
+    )
+  } else if (deleteBtn5 === 'delete clicked') {
+    return blank
   } 
+  
 };
-
 
 
 const sixthCity = () => {
-  if (deleteBtn === '' || deleteBtn === 'delete clicked' && AddNewCityJoin6 !== sixthState) {   
+  
+  if (deleteBtn6 === '' && AddNewCityJoin6 !== '' || deleteBtn6 === 'delete clicked' && props.statecursearch6 !== '') {   
     
-    return  AddNewCityJoin6
-  } if (deleteBtn === 'delete clicked') {
-    return strinz
+    return ( 
+      
+    <div>{AddNewCityJoin6}
+    <button onClick={handleClick6}
+            
+    >X</button>
+    
+    </div>
+  
+    )
+  } else if (deleteBtn6 === 'delete clicked') {
+    return blank
   } 
+  
 };
+
+
+
+
 
 
  
@@ -231,7 +298,7 @@ return (
     
       {secondCity()}
     </li>
-    <li>
+     <li>
     
       {thirdCity()}
     </li>
@@ -246,7 +313,7 @@ return (
     <li>
       
       {sixthCity()}
-    </li>
+    </li> 
   
   
     </>
