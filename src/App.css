@@ -1,38 +1,153 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+       body{
+        background-color:rgb(255, 255, 255);
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+       }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+       .height{
+        height: 100vh;
+       }
+       
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+       .search{
+       position: relative;
+       padding-bottom: 20px;
+       }
 
-.App-link {
-  color: #61dafb;
-}
+       .search input{
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+        height: 60px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+       }
+
+
+       .search input:focus{
+        box-shadow: none;
+        border: 2px solid rgb(0, 0, 170);
+       }
+
+       .search .fa-search{
+        position: absolute;
+        top: 20px;
+        left: 16px;
+       }
+
+       .search button{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        width: 110px;
+        background: rgb(0, 0, 170);
+       }
+
+
+       .container-fluid {
+              position: absolute;
+              top: 20%;
+       }
+
+       .border {
+              background-color: rgb(0, 0, 170);
+              color: white;
+              height: 15vh;
+              
+       }
+
+      .border.rounded {
+       line-height: 12.5px;
+       width: 100%;
+       margin-bottom: 10px;
+      }
+
+
+     .iconAndCelsius {
+      margin-top: -10.5px;
+     }
+
+     .celsiusNumber {
+       position: relative; 
+       font-size: 45px;
+       
+     }
+
+     .conditionIcon {
+      position: relative;
+     }
+
+   
+     .rightSideInfo {
+      font-size: 16px;
+      font-weight: lighter;
+     }
+
+
+     .cityName {
+       position: relative;
+       margin-left: 30px;
+       top: 5px;
+       font-size: 27.5px;
+      font-weight: lighter;
+     }
+    
+     .wind {
+       position: relative;
+       margin-left: 30px;
+       top: -35.50px;
+       bottom: 87.25px;
+       font-size: 20px;
+      font-weight: lighter;
+     }
+
+     .windSpeed {
+      position: relative;
+      bottom: 40px;
+      margin-left: 22.5px;
+      font-size: 14px;
+     }
+
+     .tomorrow {
+       position: relative;
+       margin-left: 30px;
+       top: -55.50px;
+       bottom: 87.25px;
+       font-size: 20px;
+      font-weight: lighter;
+     }
+
+     .tomorrowTemp {
+       position: relative;
+       bottom: 60px;
+       margin-left: 22.5px;
+       font-size: 14px;
+     }
+
+     .removeCity {
+      position: relative;
+     top: -1px;
+      height: 20px;
+      
+      
+     }
+
+     @media only screen and (min-height: 920px) {
+       .border.rounded {
+              
+              height: 12vh;
+       }; 
+      
+       @media only screen and (min-width: 2000px) {
+        .border {
+               
+               max-width: 80vh;
+               
+        };
+
+         
+
+       }
+
+       }
