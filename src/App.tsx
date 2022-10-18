@@ -29,7 +29,7 @@ export default function App() {
 
       if (search !== "") {
 
-        const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+        const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
         if (!res.ok) {
           throw new Error(`HTTP error: ${res.status}`);
         }
@@ -42,7 +42,7 @@ export default function App() {
 
         if (curSearch !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+          const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
@@ -56,7 +56,7 @@ export default function App() {
 
         if (curSearch2 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+          const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
@@ -69,7 +69,7 @@ export default function App() {
         }
         if (curSearch3 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+          const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
@@ -84,7 +84,7 @@ export default function App() {
         }
         if (curSearch4 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+          const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
@@ -97,7 +97,7 @@ export default function App() {
         }
         if (curSearch5 !== "") {
 
-          const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
+          const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}${search}&days=2&aqi=no&alerts=no`);
           if (!res.ok) {
             throw new Error(`HTTP error: ${res.status}`);
           }
