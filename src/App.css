@@ -133,6 +133,27 @@
       
      }
 
+     @media only screen and (max-height: 610px) {
+       .border.rounded {
+              
+              height: 20vh;
+       }; 
+     };
+
+     @media only screen and (max-height: 450px) {
+       .border.rounded {
+              
+              height: 30vh;
+       }; 
+     };
+
+     @media only screen and (max-height: 300px) {
+       .border.rounded {
+              
+              height: 40vh;
+       }; 
+     };
+
      @media only screen and (min-height: 920px) {
        .border.rounded {
               
