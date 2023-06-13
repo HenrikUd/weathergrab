@@ -3,12 +3,15 @@ import { useEffect } from 'react';
 
 interface Foreffects { 
     setTheForecast: React.Dispatch<React.SetStateAction<string>>;
-    setTheError: React.Dispatch<React.SetStateAction<{}>>;
-    setTheCur1: React.Dispatch<React.SetStateAction<string>>
+    setTheError: React.Dispatch<React.SetStateAction<null>>;
+    setTheCur1: React.Dispatch<React.SetStateAction<string>>;
+    
+    searchData: any; 
 }
 
 
-const UseEffects: (props: Foreffects) => Function | any = (props: Foreffects) => {
+const UseEffects: (props: Foreffects, searchData: unknown) => any = (props: Foreffects) => {
+    
     
  useEffect(() => {                        // fetches API for Tallinn  
     
@@ -43,7 +46,10 @@ Promise.all(
 
 );
 
-}, [])};
+}, [])}
+
+
+
 
 
 export default UseEffects;

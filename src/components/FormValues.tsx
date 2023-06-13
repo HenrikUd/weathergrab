@@ -1,8 +1,15 @@
 
  type FormValues = {
     cityName: string;
-    data: string
+    data: string;
+    length: React.ReactNode;
+    searchData: Record<string, unknown>;
+    label: any;
+    
+
 }
+
+
 
 
 

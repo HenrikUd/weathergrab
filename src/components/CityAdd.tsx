@@ -4,7 +4,7 @@ import Forcities from './Forcities';
 
 
 
-const CityAdd: (props: Forcities) => any = (props: Forcities) => {
+const CityAdd: (props: Forcities) => any = (props) => {
   
   
   const stateForecastTln = props.stateforecast;    // takes the API call props so it can be used for getting the values
@@ -18,12 +18,13 @@ const CityAdd: (props: Forcities) => any = (props: Forcities) => {
 
 
 
-const [deleteBtn, setDeleteBtn] = useState('');
-const [deleteBtn2, setDeleteBtn2] = useState('');
-const [deleteBtn3, setDeleteBtn3] = useState('');
-const [deleteBtn4, setDeleteBtn4] = useState('');
-const [deleteBtn5, setDeleteBtn5] = useState('');
-const [deleteBtn6, setDeleteBtn6] = useState('');
+const [deleteBtn, setDeleteBtn] = useState("");
+const [deleteBtn2, setDeleteBtn2] = useState("");
+const [deleteBtn3, setDeleteBtn3] = useState("");
+const [deleteBtn4, setDeleteBtn4] = useState("");
+const [deleteBtn5, setDeleteBtn5] = useState("");
+const [deleteBtn6, setDeleteBtn6] = useState("");
+
 
 
 
@@ -47,7 +48,7 @@ const TallinnTemps = [                                // pre-loads temperatures 
 
  
 
- const AddNewCity: any = []             // pre-loads temperatures for all the other cities (6 max)
+ const AddNewCity: (string | number)[] = []             // pre-loads temperatures for all the other cities (6 max)
  if (props.statecursearch.length !== 0) {
   AddNewCity.push(newCity.location.name, newCity.current.temp_c, newCity.current.condition.text,'Wind', 
   newCity.current.wind_kph,'km/h','Tomorrow', 
@@ -57,7 +58,7 @@ const TallinnTemps = [                                // pre-loads temperatures 
 const AddNewCityJoin = AddNewCity.join(' ');
 
 
- const AddNewCity2: any = []             
+ const AddNewCity2: (string | number)[] = []             
  if (props.statecursearch2.length !== 0) {
   AddNewCity2.push(newCity2.location.name, newCity2.current.temp_c, newCity2.current.condition.text,'Wind', 
   newCity2.current.wind_kph,'km/h','Tomorrow', 
@@ -68,7 +69,7 @@ const AddNewCityJoin = AddNewCity.join(' ');
  const AddNewCityJoin2 = AddNewCity2.join(' ');
 
 
- const AddNewCity3: any = []             
+ const AddNewCity3: (string | number)[] = []             
  if (props.statecursearch3.length !== 0) {
   AddNewCity3.push(newCity3.location.name, newCity3.current.temp_c, newCity3.current.condition.text,'Wind', 
   newCity3.current.wind_kph,'km/h','Tomorrow', 
@@ -79,7 +80,7 @@ const AddNewCityJoin = AddNewCity.join(' ');
  const AddNewCityJoin3 = AddNewCity3.join(' ');
 
 
- const AddNewCity4: any = []             
+ const AddNewCity4: (string | number)[] = []             
  if (props.statecursearch4.length !== 0) {
   AddNewCity4.push(newCity4.location.name, newCity4.current.temp_c, newCity4.current.condition.text,'Wind', 
   newCity4.current.wind_kph,'km/h','Tomorrow', 
@@ -90,7 +91,7 @@ const AddNewCityJoin = AddNewCity.join(' ');
  const AddNewCityJoin4 = AddNewCity4.join(' ');
 
 
- const AddNewCity5: any = []             
+ const AddNewCity5: (string | number)[] = []             
  if (props.statecursearch5.length !== 0) {
   AddNewCity5.push(newCity5.location.name, newCity5.current.temp_c, newCity5.current.condition.text,'Wind', 
   newCity5.current.wind_kph,'km/h','Tomorrow', 
@@ -101,7 +102,7 @@ const AddNewCityJoin = AddNewCity.join(' ');
  const AddNewCityJoin5 = AddNewCity5.join(' ');
 
 
- const AddNewCity6: any = []             
+ const AddNewCity6: (string | number)[] = []             
  if (props.statecursearch6.length !== 0) {
   AddNewCity6.push(newCity6.location.name, newCity6.current.temp_c, newCity6.current.condition.text,'Wind', 
   newCity6.current.wind_kph,'km/h','Tomorrow', 
@@ -110,8 +111,8 @@ const AddNewCityJoin = AddNewCity.join(' ');
   
 }  
  
- let AddNewCityJoin6 = AddNewCity6.join(' ');
- const blank: string = '';
+ const AddNewCityJoin6 = AddNewCity6.join(' ');
+ const blank = '';
 
 
  
@@ -183,7 +184,7 @@ const firstCity = () => {
         {AddNewCity[1]}°
         </h3>
         
-        <img className="conditionIcon" src={AddNewCity[10]} alt={AddNewCity[2]} />
+        <img className="conditionIcon" src={AddNewCity[10] as string} alt={AddNewCity[2] as string} />
         </div>
         </div>
         
@@ -251,7 +252,7 @@ const secondCity = () => {
           {AddNewCity2[1]}°
           </h3>
           
-          <img className="conditionIcon" src={AddNewCity2[10]} alt={AddNewCity2[2]} />
+          <img className="conditionIcon" src={AddNewCity2[10] as string} alt={AddNewCity2[2] as string} />
           </div>
           </div>
           
@@ -317,7 +318,7 @@ const thirdCity = () => {
           {AddNewCity3[1]}°
           </h3>
           
-          <img className="conditionIcon" src={AddNewCity3[10]} alt={AddNewCity3[2]} />
+          <img className="conditionIcon" src={AddNewCity3[10] as string} alt={AddNewCity3[2] as string} />
           </div>
           </div>
           
@@ -383,7 +384,7 @@ const fourthCity = () => {
           {AddNewCity4[1]}°
           </h3>
           
-          <img className="conditionIcon" src={AddNewCity4[10]} alt={AddNewCity4[2]} />
+          <img className="conditionIcon" src={AddNewCity4[10] as string} alt={AddNewCity4[2] as string} />
           </div>
           </div>
           
@@ -450,7 +451,7 @@ const fifthCity = () => {
           {AddNewCity5[1]}°
           </h3>
           
-          <img className="conditionIcon" src={AddNewCity5[10]} alt={AddNewCity5[2]} />
+          <img className="conditionIcon" src={AddNewCity5[10] as string} alt={AddNewCity5[2] as string} />
           </div>
           </div>
           
@@ -517,7 +518,7 @@ const sixthCity = () => {
           {AddNewCity6[1]}°
           </h3>
           
-          <img className="conditionIcon" src={AddNewCity6[10]} alt={AddNewCity6[2]} />
+          <img className="conditionIcon" src={AddNewCity6[10] as string} alt={AddNewCity6[2] as string} />
           </div>
           </div>
           

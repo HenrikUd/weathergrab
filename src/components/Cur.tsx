@@ -2,7 +2,6 @@
 interface Cur {
     temp_c: number;
     name: string;
-    toLowerCase: Function;
     condition: object;
     k: any;
     arr: string;

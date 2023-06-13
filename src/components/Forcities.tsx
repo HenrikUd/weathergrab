@@ -1,6 +1,12 @@
+import { AnyARecord } from "dns"
+
+
 
 
 interface Forcities {
+
+
+
 
   stateforecast: {
 
@@ -54,7 +60,9 @@ interface Forcities {
       name: string;
     }
   }
+  
   statecursearch: {
+    
     length: number;
     forecast: {
 
@@ -80,6 +88,7 @@ interface Forcities {
       name: string;
     }
   }
+  
   statecursearch2: {
     length: number;
     forecast: {
@@ -210,16 +219,19 @@ interface Forcities {
       name: string;
     }
   }
+  src: string | undefined;
+  alt: string | undefined;
 
 
-    
-     TallinnTemps: Array<string>;
-    updateCurSearch: React.Dispatch<React.SetStateAction<string>>;
-    updateCurSearch2: React.Dispatch<React.SetStateAction<string>>;
-    updateCurSearch3: React.Dispatch<React.SetStateAction<string>>;
-    updateCurSearch4: React.Dispatch<React.SetStateAction<string>>;
-    updateCurSearch5: React.Dispatch<React.SetStateAction<string>>;
-    updateCurSearch6: React.Dispatch<React.SetStateAction<string>>;
-    }
+  TallinnTemps: Array<string>;
+  updateCurSearch: React.Dispatch<React.SetStateAction<string>>;
+  updateCurSearch2: React.Dispatch<React.SetStateAction<string>>;
+  updateCurSearch3: React.Dispatch<React.SetStateAction<string>>;
+  updateCurSearch4: React.Dispatch<React.SetStateAction<string>>;
+  updateCurSearch5: React.Dispatch<React.SetStateAction<string>>;
+  updateCurSearch6: React.Dispatch<React.SetStateAction<string>>;
+}
 
-    export default Forcities;
+
+
+export default Forcities;
